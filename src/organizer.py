@@ -9,7 +9,8 @@ from pathlib import Path
 
 class Organizer:
 
-  def __init__(self):
+  def __init__(self, download_path):
+    self.download_path = download_path
     self.directories = {
       "HTML": [".html5", ".html", ".htm", ".xhtml"],
       "IMAGES": [".jpeg", ".jpg", ".tiff", ".gif", ".bmp", ".png", ".bpg",
@@ -36,25 +37,32 @@ class Organizer:
 
   def __create_folders(self):
     for directory in self.directories:
-      if not os.path.exists(directory):
-        os.mkdir(directory)
+      folder_path = Path(self.download_path) / directory
+      if not folder_path.exists():
+        folder_path.mkdir(directory)
 
-  def __sort(self):
-    for entry in os.scandir():
+  def organize(self):
+    for entry in os.scandir(self.download_path):
       if entry.is_dir():
         continue
       file_path = Path(entry)
       file_type = file_path.suffix.lower()
-      for file_folder, file_extension in self.directories.items():
-        if file_type in file_extension:
-          shutil.move(file_path, file_folder)
+      for file_folder, file_extensions in self.directories.items():
+        if file_type in file_extensions:
+          destination_folder = Path(self.download_path) / file_folder
+          shutil.move(file_path, destination_folder)
+
 
   def organize(self):
     self.__create_folders()
     self.__sort()
 
-  #set the path to the download directory
-  #TODO: the directory should be set automatically, depending on the OS and user
-  #os.chdir('/Users/danielwendt/Downloads')
-  #create_folders()
-  #organize()
+if __name__ == "__main__":
+  # Set the path to the download directory
+  # TODO: Set the directory automatically depending on the OS and user
+  download_dir = '/Users/danielwendt/Downloads'
+
+  # Create an instance of Organizer and run the methods
+  organizer = Organizer(download_dir)
+  organizer.create_folders()
+  organizer.organize()
