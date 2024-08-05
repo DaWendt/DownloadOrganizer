@@ -39,9 +39,9 @@ class Organizer:
     for directory in self.directories:
       folder_path = Path(self.download_path) / directory
       if not folder_path.exists():
-        folder_path.mkdir(directory)
+        folder_path.mkdir(parents=True, exist_ok=True)
 
-  def organize(self):
+  def __sort(self):
     for entry in os.scandir(self.download_path):
       if entry.is_dir():
         continue
@@ -64,5 +64,4 @@ if __name__ == "__main__":
 
   # Create an instance of Organizer and run the methods
   organizer = Organizer(download_dir)
-  organizer.create_folders()
   organizer.organize()
