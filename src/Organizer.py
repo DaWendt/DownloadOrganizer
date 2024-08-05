@@ -53,6 +53,10 @@ class Organizer:
       file_type = file_path.suffix.lower()
       matched = False
 
+      #skip .DS_Store files
+      if file_path.name == ".DS_Store":
+        continue
+
       for file_folder, file_extensions in self.directories.items():
         if file_type in file_extensions:
           destination_folder = Path(self.download_path) / file_folder
