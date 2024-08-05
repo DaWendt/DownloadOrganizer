@@ -51,10 +51,17 @@ class Organizer:
         continue
       file_path = Path(entry)
       file_type = file_path.suffix.lower()
+      matched = False
+
       for file_folder, file_extensions in self.directories.items():
         if file_type in file_extensions:
           destination_folder = Path(self.download_path) / file_folder
           shutil.move(file_path, destination_folder)
+          matched = True
+
+      if not matched:
+        destination_folder = Path(self.download_path) / "MISC"
+        shutil.move(file_path, destination_folder)
 
 
   def organize(self):
