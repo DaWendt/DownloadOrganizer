@@ -14,7 +14,7 @@ class Organizer:
     self.directories = {
       "HTML": [".html5", ".html", ".htm", ".xhtml"],
       "IMAGES": [".jpeg", ".jpg", ".tiff", ".gif", ".bmp", ".png", ".bpg",
-                 "svg",
+                 ".svg",
                  ".heif", ".psd"],
       "VIDEOS": [".avi", ".flv", ".wmv", ".mov", ".mp4", ".webm", ".vob",
                  ".mng",
@@ -26,7 +26,7 @@ class Organizer:
       "ARCHIVES": [".a", ".ar", ".cpio", ".iso", ".tar", ".gz", ".rz", ".7z",
                    ".dmg", ".rar", ".xar", ".zip"],
       "AUDIO": [".aac", ".aa", ".aac", ".dvf", ".m4a", ".m4b", ".m4p", ".mp3",
-                ".msv", "ogg", "oga", ".raw", ".vox", ".wav", ".wma"],
+                ".msv", ".ogg", ".oga", ".raw", ".vox", ".wav", ".wma"],
       "PLAINTEXT": [".txt", ".in", ".out"],
       "PDF": [".pdf"],
       "PYTHON": [".py"],
