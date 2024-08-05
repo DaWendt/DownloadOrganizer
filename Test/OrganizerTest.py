@@ -1,7 +1,5 @@
 import unittest
 import tempfile
-import os
-import shutil
 from pathlib import Path
 from src.Organizer import Organizer
 
