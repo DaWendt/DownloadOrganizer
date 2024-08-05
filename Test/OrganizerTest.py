@@ -36,6 +36,14 @@ class OrganizerTest(unittest.TestCase):
     # Cleanup the temporary directory
     self.test_dir.cleanup()
 
+  def test_create_folders(self):
+    organizer = Organizer(self.download_path)
+    organizer._Organizer__create_folders()
+
+    for folder in organizer.directories.keys():
+      folder_path = Path(self.download_path) / folder
+      self.assertTrue(folder_path.exists(), f"Directory {folder} was not created")
+
   def test_organize(self):
     organizer = Organizer(self.download_path)
     organizer.organize()
