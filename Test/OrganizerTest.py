@@ -24,7 +24,8 @@ class OrganizerTest(unittest.TestCase):
       "script.py": "PYTHON",
       "data.xml": "XML",
       "program.exe": "EXE",
-      "script.sh": "SHELL"
+      "script.sh": "SHELL",
+      "foo.bar": "MISC"
     }
 
     for file_name in self.test_files:

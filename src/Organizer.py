@@ -22,7 +22,7 @@ class Organizer:
       "DOCUMENTS": [".oxps", ".epub", ".pages", ".docx", ".doc", ".fdf", ".ods",
                     ".odt", ".pwi", ".xsn", ".xps", ".dotx", ".docm", ".dox",
                     ".rvg", ".rtf", ".rtfd", ".wpd", ".xls", ".xlsx", ".ppt",
-                    "pptx"],
+                    ".pptx"],
       "ARCHIVES": [".a", ".ar", ".cpio", ".iso", ".tar", ".gz", ".rz", ".7z",
                    ".dmg", ".rar", ".xar", ".zip"],
       "AUDIO": [".aac", ".aa", ".aac", ".dvf", ".m4a", ".m4b", ".m4p", ".mp3",
@@ -32,7 +32,11 @@ class Organizer:
       "PYTHON": [".py"],
       "XML": [".xml"],
       "EXE": [".exe"],
-      "SHELL": [".sh"]
+      "SHELL": [".sh"],
+      "C": [".c"],
+      "ASSEMBLY": [".asm"],
+      "RISC_V": [".s"],
+      "MISC": []
     }
 
   def __create_folders(self):
