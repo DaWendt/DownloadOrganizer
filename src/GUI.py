@@ -23,6 +23,7 @@ class App(ctk.CTk):
     self.rowconfigure(0, weight=1)
 
     self.entry_path = ctk.CTkEntry(self, width=300)
+    self.entry_path.configure(state="disabled")
     self.entry_path.grid(row=0, column=0)
 
     self.button_browse = ctk.CTkButton(self, text="Browse Directory",
@@ -37,8 +38,10 @@ class App(ctk.CTk):
     folder_selected = filedialog.askdirectory(
       initialdir=os.path.expanduser("~/Downloads"))
     if folder_selected:
+      self.entry_path.configure(state="normal")
       self.entry_path.delete(0, ctk.END)
       self.entry_path.insert(0, folder_selected)
+      self.entry_path.configure(state="disabled")
     self.organizer = Organizer(folder_selected)
 
   def on_button_click(self):
