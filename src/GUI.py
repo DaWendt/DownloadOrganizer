@@ -1,7 +1,7 @@
 import os
 
 import customtkinter as ctk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 from Organizer import Organizer
 
 ctk.set_appearance_mode("light")
@@ -46,7 +46,7 @@ class App(ctk.CTk):
 
   def on_button_click(self):
     if self.organizer is None:
-      print("Please select a directory first.")
+      messagebox.showerror("Error", "Please select a directory first.")
       return
     self.organizer.organize()
 
