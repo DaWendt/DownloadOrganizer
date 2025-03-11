@@ -3,6 +3,7 @@ import os
 import customtkinter as ctk
 from tkinter import filedialog, messagebox
 from Organizer import Organizer
+from pathlib import Path
 
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("blue")
@@ -36,7 +37,7 @@ class App(ctk.CTk):
 
   def select_download_folder(self):
     folder_selected = filedialog.askdirectory(
-      initialdir=os.path.expanduser("~/Downloads"))
+      initialdir=Path.home())
     if folder_selected:
       self.entry_path.configure(state="normal")
       self.entry_path.delete(0, ctk.END)
