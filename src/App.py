@@ -8,6 +8,7 @@ from pathlib import Path
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("blue")
 
+
 class App(ctk.CTk):
 
   def __init__(self):
@@ -37,7 +38,7 @@ class App(ctk.CTk):
 
   def select_download_folder(self):
     folder_selected = filedialog.askdirectory(
-      initialdir=Path.home())
+        initialdir=Path.home())
     if folder_selected:
       self.entry_path.configure(state="normal")
       self.entry_path.delete(0, ctk.END)
@@ -49,7 +50,16 @@ class App(ctk.CTk):
     if self.organizer is None:
       messagebox.showerror("Error", "Please select a directory first.")
       return
+
+    execution = messagebox.askyesnocancel("Confirmation",
+                                          "Are you sure you want "
+                                          "to organize the directory?")
+    if execution is None:
+      return
+
     self.organizer.organize()
+    messagebox.showinfo("Success", "Directory has been organized.")
+
 
 if __name__ == "__main__":
   app = App()
