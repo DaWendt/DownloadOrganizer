@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import customtkinter as ctk
-from src.GUI import App
+from src.App import App
 from src.Organizer import Organizer
 
 

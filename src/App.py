@@ -30,8 +30,8 @@ class App(ctk.CTk):
                                        command=self.select_download_folder)
     self.button_browse.grid(row=0, column=1)
 
-    self.button_action = ctk.CTkButton(self, text="Submit",
-                                       command=self.on_button_click)
+    self.button_action = ctk.CTkButton(self, text="Organize",
+                                       command=self.execute_organization)
     self.button_action.grid(row=0, column=2)
 
   def select_download_folder(self):
@@ -44,7 +44,7 @@ class App(ctk.CTk):
       self.entry_path.configure(state="disabled")
     self.organizer = Organizer(folder_selected)
 
-  def on_button_click(self):
+  def execute_organization(self):
     if self.organizer is None:
       messagebox.showerror("Error", "Please select a directory first.")
       return
