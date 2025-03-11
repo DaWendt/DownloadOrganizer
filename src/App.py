@@ -37,6 +37,7 @@ class App(ctk.CTk):
     self.button_action.grid(row=0, column=2)
 
   def __select_download_folder(self):
+    """Open a file dialog to select a directory for organization."""
     folder_selected = filedialog.askdirectory(
         initialdir=Path.home())
     if folder_selected:
@@ -47,6 +48,7 @@ class App(ctk.CTk):
     self.organizer = Organizer(folder_selected)
 
   def __execute_organization(self):
+    """Trigger the organization process."""
     if self.organizer is None:
       messagebox.showerror("Error", "Please select a directory first.")
       return
