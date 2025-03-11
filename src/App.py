@@ -16,7 +16,7 @@ class App(ctk.CTk):
 
     self.organizer = None
 
-    self.title("Download Organizer")
+    self.title("Directory Organizer")
     self.geometry("500x300")
 
     self.columnconfigure(0, weight=1)
@@ -29,14 +29,14 @@ class App(ctk.CTk):
     self.entry_path.grid(row=0, column=0)
 
     self.button_browse = ctk.CTkButton(self, text="Browse Directory",
-                                       command=self.select_download_folder)
+                                       command=self.__select_download_folder)
     self.button_browse.grid(row=0, column=1)
 
     self.button_action = ctk.CTkButton(self, text="Organize",
-                                       command=self.execute_organization)
+                                       command=self.__execute_organization)
     self.button_action.grid(row=0, column=2)
 
-  def select_download_folder(self):
+  def __select_download_folder(self):
     folder_selected = filedialog.askdirectory(
         initialdir=Path.home())
     if folder_selected:
@@ -46,7 +46,7 @@ class App(ctk.CTk):
       self.entry_path.configure(state="disabled")
     self.organizer = Organizer(folder_selected)
 
-  def execute_organization(self):
+  def __execute_organization(self):
     if self.organizer is None:
       messagebox.showerror("Error", "Please select a directory first.")
       return

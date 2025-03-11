@@ -39,7 +39,7 @@ class TestAppGUI(unittest.TestCase):
   @patch("tkinter.filedialog.askdirectory", return_value="/mocked/path")
   def test_on_button_click(self, mock_askdirectory, mock_organize):
     # Simuliere das Auswählen eines Ordners
-    self.app.select_download_folder()
+    self.app.__select_download_folder()
 
     # Simuliere den Button-Klick für "Submit"
     self.app.button_action.invoke()
